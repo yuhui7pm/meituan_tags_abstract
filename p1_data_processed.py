@@ -7,7 +7,7 @@ import emoji
 import pymongo
 import re
 
-#字典去重：删除数据库中重复的数据
+#删除数据库中重复的评论数据
 def deleteRepeatArr(arr):
     newArr = list(set([str(i) for i in arr]))
     li = [eval(i) for i in newArr]
@@ -37,8 +37,9 @@ class MongoDB():
         collection = self.collect_database()
         #将数据库数据保存到数组中
         for x in collection.find({"shopName":shopName},{"_id":0,"user-comment":1}):
-            print(x)
+            # print(x)
             res.append(x)
+        print('数据库的总个数：', len(res))
         #因为数据库中有重复的数据，所以要删除重复数据
         res = deleteRepeatArr(res)
         return res
@@ -47,17 +48,18 @@ class MongoDB():
 # 制定规则，进行数据预处理
 def regProcessed(line):
     delete_emoji = emoji.demojize(line["user-comment"])    # 将emoji表情转换成字符串的形式以供删除
-    result = re.sub(r':.*:', " ", delete_emoji)    # 删除变成字符串形式的emoji表情
-    result = re.sub(r'【.*】', "", result)    # 删除评论自带的标签，如：【环境】，【服务】
-    result = re.sub(r'\（.*\）|\(.*\)', "", result)    # 删除评论中的颜表情(⑅˃◡˂⑅)
+    result = re.sub(r':.*?:', " ", delete_emoji)    # 删除变成字符串形式的emoji表情
+    result = re.sub(r'【|】', "", result)    # 删除评论自带的标签，如：【环境】，【服务】 改过
+    result = re.sub(r'\（.*\）|\(.*|\（.*|\(.*\)|⊙∀⊙|Ծ\^Ծ', "", result)    # 删除评论中的颜表情,如(⑅˃◡˂⑅)
     result = re.sub(r'#.*#', "", result)    # 删除评论中出现的菜名，例如：#广式炸云吞# #白灼大海虾# #盐水呛生蚝#
     result = re.sub(r'h{2,}', "", result)    # 删除评论中出现的hhhh
     result = re.sub(r'[0-9|A-Z|a-z]{2,}', "", result)    # 删除评论中出现的数字，英文字母
     result = re.sub(r'\[\.\]', "", result) #去除 [害羞] 类型的字符
-    result = re.sub(r'(…|\.|\?|。|，|,|！|!|~|～){2,}', "。", result)  # 删除评论中出现的标点符号
+    result = re.sub(r'(…|\.|\?|。|，|,|！|!|~|～|\*){2,}', "。", result)  # 删除评论中出现的标点符号
     result = re.sub(r'\s{1,}',',',result) #匹配多个空格，替换成"，"
-    result = result.strip()    # 去除两边的空格
-    result = result.replace('\n','')    # 去除换行符\n
+    # result = result.strip()  # 删除括号中间的内容
+    # result = result.strip()    # 去除两边的空格                                 改过
+    # result = result.replace('\n','')    # 去除换行符\n                          改过
     result = result.replace('\r','')    # 去除换行符\r
     # result = re.split('[，,.。？?～ ]',result.strip())    # 将每个句子进行分割
     #开头只有1个逗号的情况
@@ -66,7 +68,7 @@ def regProcessed(line):
     return result
 
 if __name__ == '__main__':
-    shopName = '老树咖啡（峡山店）'
+    shopName = '肥姐海鲜大排档'
 
     # 给出文档路径,用于保存处理前的数据和处理后的数据
     inputs = MongoDB("shops_comments").selectMongoDB()
@@ -82,7 +84,7 @@ if __name__ == '__main__':
         # 得到处理过后的数据
         lineList = regProcessed(line)
         # 完整的句子->写到txt文件中,
-        outputs2.write(line["user-comment"] + '\n')
+        outputs2.write(line["user-comment"].replace('\n','') + '\n')
         if len(lineList.strip())>0:
             outputs.write('id_' + str(index) + '.' + lineList + '\n')
         # 将句子进行切割->写到txt文件中

@@ -15,7 +15,6 @@ def splitTag(ind,arr,i):
     deny_word_count = 0
     deny_word_arr = []
 
-    # print('i:',i)
     comment_id= str(re.split(r'_\d+\.',i.strip())[0])+'.'
 
     for index,item in enumerate(arr):
@@ -23,9 +22,14 @@ def splitTag(ind,arr,i):
         if re.compile('/n').findall(str(item)):
             nounce = str(item).split('/n')[0]
             n_ind = index
+        elif re.compile('/vn').findall(str(item)):
+            nounce = str(item).split('/vn')[0]
+            n_ind = index
+
         if re.compile('/a').findall(str(item)):
             adj = str(item).split('/a')[0]
             adj_ind = index
+
         if re.compile('不\|没').findall(str(item)):
             #在名词和形容词之间
             if index>nounce and index<adj_ind:
@@ -70,12 +74,13 @@ if __name__ == '__main__':
 
     index = 0 #用于计数
     for i in input:
-        if index<10000:
+        # if index<100:
             result = re.sub(r'id_\d+\_\d+\.', "", i.strip())
 
             # HANLP标准分词
             CustomDictionary = JClass('com.hankcs.hanlp.dictionary.CustomDictionary')
             HanLP = JClass('com.hankcs.hanlp.HanLP')
+            # HanLP.Config.ShowTermNature = False
             test1 = HanLP.segment(result)
             # NLP分词
             # NLPTokenizer = JClass('com.hankcs.hanlp.tokenizer.NLPTokenizer')

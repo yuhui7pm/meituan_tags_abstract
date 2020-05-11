@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eefc797c-8255-4d53-a478-9d4b4b7a57b9" name="Default Changelist" comment="" />
+    <list default="true" id="eefc797c-8255-4d53-a478-9d4b4b7a57b9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/custom_dictionary.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputFile/yuhui_dictionary.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReadMe.md" beforeDir="false" afterPath="$PROJECT_DIR$/ReadMe.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputFile/final_ans.txt" beforeDir="false" afterPath="$PROJECT_DIR$/outputFile/final_ans.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputFile/p1_initial_Data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/outputFile/p1_initial_Data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputFile/p1_processed_Data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/outputFile/p1_processed_Data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputFile/p1_small_processed_Data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/outputFile/p1_small_processed_Data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputFile/p2_comment_tags.txt" beforeDir="false" afterPath="$PROJECT_DIR$/outputFile/p2_comment_tags.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputFile/p2_data_seperated.txt" beforeDir="false" afterPath="$PROJECT_DIR$/outputFile/p2_data_seperated.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputFile/p2_parse_data_seperated.txt" beforeDir="false" afterPath="$PROJECT_DIR$/outputFile/p2_parse_data_seperated.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputFile/p2_tags_summarize.txt" beforeDir="false" afterPath="$PROJECT_DIR$/outputFile/p2_tags_summarize.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p0_default_tags.txt" beforeDir="false" afterPath="$PROJECT_DIR$/p0_default_tags.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p1_data_processed.py" beforeDir="false" afterPath="$PROJECT_DIR$/p1_data_processed.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p2_separate_words.py" beforeDir="false" afterPath="$PROJECT_DIR$/p2_separate_words.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_tags_similarity_detect.py" beforeDir="false" afterPath="$PROJECT_DIR$/p5_tags_similarity_detect.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,16 +46,21 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1Y0UzY4RReXOgrGLio37fjj10Iz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/venv/Lib/site-packages/pyhanlp/static/data/dictionary/custom" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
     <property name="settings.editor.selected.configurable" value="preferences.mongoOptions" />
   </component>
   <component name="RecentsManager">
@@ -46,8 +68,9 @@
       <recent name="D:\python\bishe_new" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\python\bishe_new\venv\Lib\site-packages\pyhanlp\static\data\dictionary\custom" />
       <recent name="D:\python\bishe_new" />
+      <recent name="D:\python\bishe_new\outputFile" />
+      <recent name="D:\python\bishe_new\venv\Lib\site-packages\pyhanlp\static\data\dictionary\custom" />
       <recent name="D:\python\bishe_new\venv\Lib\site-packages" />
       <recent name="D:\python\bishe_new\venv\Lib\site-packages\pyhanlp\static" />
     </key>
@@ -91,6 +114,9 @@
       <module name="bishe_new" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -132,6 +158,9 @@
       <module name="bishe_new" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -151,6 +180,9 @@
       <module name="bishe_new" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -170,6 +202,9 @@
       <module name="bishe_new" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -188,9 +223,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.p5_tags_similarity_detect" />
-        <item itemvalue="Python.p0_default_tags" />
         <item itemvalue="Python.p2_separate_words" />
         <item itemvalue="Python.p1_data_processed" />
+        <item itemvalue="Python.p0_default_tags" />
         <item itemvalue="Python.p0_delete_repeat_yuliao" />
       </list>
     </recent_temporary>
@@ -218,18 +253,49 @@
       <workItem from="1582302489556" duration="1725000" />
       <workItem from="1582304393378" duration="122000" />
       <workItem from="1582337479360" duration="22493000" />
-      <workItem from="1582361608659" duration="5909000" />
+      <workItem from="1582361608659" duration="6540000" />
+      <workItem from="1582440135161" duration="1429000" />
+      <workItem from="1582447698540" duration="3978000" />
+      <workItem from="1582536964100" duration="1501000" />
+      <workItem from="1582540728744" duration="730000" />
+      <workItem from="1582710473399" duration="1504000" />
+      <workItem from="1582767573312" duration="140000" />
+      <workItem from="1582767813575" duration="3162000" />
+      <workItem from="1582861689015" duration="12381000" />
+      <workItem from="1582898482017" duration="3407000" />
+      <workItem from="1582942288468" duration="13162000" />
+      <workItem from="1584238100879" duration="2405000" />
+      <workItem from="1586091963953" duration="2629000" />
+      <workItem from="1586232995824" duration="3021000" />
+      <workItem from="1586930138537" duration="6994000" />
+      <workItem from="1587007407728" duration="17846000" />
+      <workItem from="1587730206096" duration="614000" />
+      <workItem from="1589174959420" duration="1375000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/bishe_new$p4_cluster_tags.coverage" NAME="p4_cluster_tags Coverage Results" MODIFIED="1582184721559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/bishe_new$p6_ans_display.coverage" NAME="p6_ans_display Coverage Results" MODIFIED="1582278002565" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/bishe_new$data_processed.coverage" NAME="data_processed Coverage Results" MODIFIED="1582100560852" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/bishe_new$p2_similarity_detect.coverage" NAME="p2_similarity_detect Coverage Results" MODIFIED="1582186792311" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/bishe_new$p1_data_processed.coverage" NAME="p1_data_processed Coverage Results" MODIFIED="1587009651170" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/bishe_new$p5_tags_similarity_detect.coverage" NAME="p5_tags_similarity_detect Coverage Results" MODIFIED="1582349886289" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/bishe_new$separate_words.coverage" NAME="separate_words Coverage Results" MODIFIED="1582174686840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

@@ -14,20 +14,25 @@ def mergeSimilarity(str):
     #注意：如果匹配到近义词，则返回第一个/前的词语
     sililarity = [
         '环境优雅/环境不错',
-        '服务态度好/服务态度不错/服务好/服务热情/服务态度很赞',
-        '价格贵/性价比低/贵/价格高',
-        '价格实惠/划算/物美价廉/便宜/性价比高/便宜实惠/套餐实惠/价格便宜'
+        '服务态度好/服务态度不错/服务好/服务热情/服务态度很赞/服务态度很好/服务不错/服务态度可以/服务周到',
+        '性价比低/贵/价格高/性价比差/价格贵/东西贵',
+        '价格实惠/划算/物美价廉/便宜/性价比高/便宜实惠/套餐实惠/价格便宜/价格不贵/东西不贵'
         '人多/人太多/排队久',
-        '味道很好/美味/好吃/味道鲜美/菜新鲜',
-        '上菜慢/上菜不快/菜慢',
+        '好吃/味道很好/美味/味道鲜美/味道不错/东西好吃/东西不错',
+        '上菜慢/上菜不快/菜慢/补给慢',
         '上菜很快/上菜快',
-        '服务态度差/服务差/服务态度不好',
+        '服务态度差/服务差/服务态度不好/服务态度很差/服务欠缺/服务不周到',
         '交通不便/停车不便',
         '交通便利/停车方便',
-        '分量足/肉多/肉足/份量足/份量多/料足',
+        '分量足/肉多/肉足/份量足/份量多/料足/量足',
+        '分量少/量少/份量少',
         '菜品丰富/种类繁多/菜品多',
         '菜品少/菜少',
-        '分量少/量少/份量少',
+        '菜新鲜/食品新鲜/现做现卖/菜品新鲜/东西新鲜/菜鲜',
+        '菜不新鲜/肉类臭/肉不新鲜/东西不新鲜',
+        '孩子高兴/孩子开心',
+        '孩子不高兴/孩子不开心',
+        '味道一般/口味一般',
     ]
     for st in sililarity:
         words = st.split('/')
@@ -81,6 +86,7 @@ def mergeTags():
         similarities = sparse_matrix.get_similarities(tf_kw)
         for e, s in enumerate(similarities, 1):
             if s>0.5:
+                # print(keyword, ' 与 ', ''.join(texts[e - 1]), ' 的相似度为： ', s)
                 key = ''.join(texts[e-1]).strip()
                 res[key]=s
         arrSorted = sorted(res.items(), key=lambda item: item[1], reverse=True)
@@ -100,6 +106,8 @@ def tagsConstrat(newArr):
         if len(itemOne.split('.')[1].split('----------')) == 1:
             if itemOne.strip().split('.')[1].endswith('好吃'):
                 newArr[ind] = itemOne + '----------东西好吃'
+            elif itemOne.strip().split('.')[1].endswith('不好吃'):
+                newArr[ind] = itemOne + '----------东西不好吃'
 
     initial_comment = open('./outputFile/p1_processed_Data.txt', 'r', encoding='UTF-8')
     for comment_item in initial_comment:
@@ -109,6 +117,9 @@ def tagsConstrat(newArr):
 def dealTags(newArr):
     resOutput = {}
     res = []
+    index = 0
+    con = ''
+
     for item in newArr:
         filter1 = item.split('.')[1]
         filter2 = filter1.split('----------')
@@ -118,13 +129,20 @@ def dealTags(newArr):
             oldnew = filter1
         new = mergeSimilarity(oldnew)  # 合并近义词
         tagsSummary.append(new)
-        resOutput[item.split('.')[0]] = new
+
+        # 键值不能一样
+        if con == item.split('.')[0]:
+            index+=1
+        else:
+            index = 0
+        resOutput[item.split('.')[0]+'-'+str(index)] = new
+        con = item.split('.')[0]
 
     # 标签top10
     counterSorted = Counter(tagsSummary).most_common(10)
     res.append(counterSorted)
-    print(Counter(tagsSummary))
-
+    print('counterSorted:',counterSorted,'\n')
+    print('--------tagsSummary',len(tagsSummary),'↓------------\n',tagsSummary,'\n','-----------resOutput↓',len(resOutput),'--------------\n',resOutput)
     # 对结果进行排序
     resOutputSorted = sorted(resOutput.items(), key=lambda item: item[1])
     res.append(resOutputSorted)
@@ -132,12 +150,13 @@ def dealTags(newArr):
         comment_id = item[0]
         comment_tag = item[1]
         output.write(comment_id + '.' + comment_tag + '\n')
+    print('-------resOutputSorted↓',len(resOutputSorted),'-----------\n',resOutputSorted)
     return res
 
 #标签与评论对应起来
 def tagToComment(res):
     obj = {}
-    print('counterSorted', res[0])
+    # print('counterSorted', res[0])
     for sorted in res[0]:  # 排好序的前十个标签
         for item in res[1]:
             comment_id = item[0]
@@ -149,8 +168,7 @@ def tagToComment(res):
     for key, val in obj.items():
         for itemInitial in initialCommentArr:
             li = itemInitial.strip()
-            print(val + ':' + li)
-            if li.split('.')[0] == key:
+            if li.split('.')[0] == key.split('-')[0]:
                 output2.write(val + ':' + li + '\n')
 
 if __name__ == '__main__':
